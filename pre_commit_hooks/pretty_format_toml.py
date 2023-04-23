@@ -2,6 +2,7 @@
 
 import re
 from subprocess import run
+import sys
 from typing import Iterable
 
 import click
@@ -39,11 +40,18 @@ def main(files: Iterable[str], autofix: bool) -> None:
     if autofix:
         format_command = ["taplo", "format"] + list(files)
         run(format_command, check=True)
-        print("The following files were formatted with taplo: " +
-              "\n- ".join(badly_formatted_files))
-    else:
+        if badly_formatted_files:
+            print("The following files were formatted with taplo: " +
+                  "\n- ".join(badly_formatted_files))
+            sys.exit(1)
+        else:
+            print("Taplo did not format any files.")
+    elif badly_formatted_files:
         print("The following files are not correctly formatted: " +
               "\n- ".join(badly_formatted_files))
+        sys.exit(1)
+    else:
+        print("All files are correctly formatted.")
 
 
 if __name__ == "__main__":

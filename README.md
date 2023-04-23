@@ -1,2 +1,3 @@
 # pre-commit-hooks
-pre-commit hooks I use
+
+[pre-commit](https://pre-commit.com) hooks I use.
