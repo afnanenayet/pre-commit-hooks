@@ -38,7 +38,6 @@ def main(files: Iterable[str], autofix: bool) -> None:
 
     if autofix:
         format_command = ["taplo", "format"] + list(files)
-        # TODO: How do we deal with error handling here?
         run(format_command, check=True)
         print("The following files were formatted with taplo: " +
               "\n- ".join(badly_formatted_files))
