@@ -1,0 +1,12 @@
+- id: pretty-format-toml-taplo
+  name: Format TOML
+  description: Formats a TOML file with taplo.
+  entry: pretty-format-toml-taplo
+  language: python
+  types: [toml]
+- id: check-toml-schema-taplo
+  name: Check a TOML schema
+  description: Validates the schema of a TOML file with taplo.
+  entry: validate-toml-schema
+  language: python
+  types: [toml]

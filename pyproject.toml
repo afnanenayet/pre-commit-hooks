@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "pre-commit-hooks"
+version = "0.1.0"
+description = "Pre commit hook scripts."
+authors = ["Afnan Enayet <afnan@afnan.io>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+click = "^8.1.3"
+
+[tool.poetry.scripts]
+pretty-format-toml = "pre_commit_hooks.pretty_format_toml:main"
+validaet-toml-schema = "pre_commit_hooks.validate_toml_schema:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
